@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="initial_popup_glow">false</item>
+    <item type="id" name="initial_popup_icon_container">false</item>
+    <item type="id" name="initial_popup_icon">false</item>
+    <item name="initial_popup_view" type="id">false</item>
+</resources>

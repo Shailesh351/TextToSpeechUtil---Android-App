@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@id/initial_popup_view"
+             android:layout_width="@dimen/copydrop_initial_popup_glow_size"
+             android:layout_height="@dimen/copydrop_initial_popup_glow_size">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@id/initial_popup_glow"
+            android:layout_width="@dimen/copydrop_initial_popup_glow_size"
+            android:layout_height="@dimen/copydrop_initial_popup_glow_size"
+            android:layout_gravity="center"
+            android:background="@drawable/copydrop_circular_glow"/>
+
+        <FrameLayout
+            android:id="@id/initial_popup_icon_container"
+            android:layout_width="@dimen/copydrop_initial_popup_bg_size"
+            android:layout_height="@dimen/copydrop_initial_popup_bg_size"
+            android:layout_gravity="center"
+            android:background="@drawable/copydrop_circular_bg"
+            android:focusable="true"
+            android:elevation="1dp">
+
+            <ImageView
+                android:id="@id/initial_popup_icon"
+                android:layout_width="@dimen/copydrop_initial_popup_icon_size"
+                android:layout_height="@dimen/copydrop_initial_popup_icon_size"
+                android:layout_gravity="center"
+                android:src="@drawable/initial_popup_logo"/>
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

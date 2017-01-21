@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="copydrop_initial_popup_glow_size" format="float">115.0dip</dimen>
+    <dimen name="copydrop_initial_popup_bg_size"  format="float">72.0dip</dimen>
+    <dimen name="copydrop_initial_popup_icon_size"  format="float">36.0dip</dimen>
+</resources>
