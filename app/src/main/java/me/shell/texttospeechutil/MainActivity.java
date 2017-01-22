@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import me.shell.texttospeechutil.copydrop.CopyDropService;
+import me.shell.texttospeechutil.copydrop.ServiceState;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,25 +25,25 @@ public class MainActivity extends AppCompatActivity {
 
         mServiseOnOffSwitch = (Switch) findViewById(R.id.service_on_off_switch);
 
-        if(mServiceState.isServiceOn()){
+        if (mServiceState.isServiceOn()) {
             mServiseOnOffSwitch.setChecked(true);
-        }else {
+        } else {
             mServiseOnOffSwitch.setChecked(false);
         }
 
         mServiseOnOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-                if(isChecked == true){
+                if (isChecked == true) {
                     startService(new Intent(getApplication(), CopyDropService.class));
                     mServiceState.setServiveState(true);
                     Log.d("test", "service started from start Service");
-                    Toast.makeText(MainActivity.this, "service started",Toast.LENGTH_SHORT).show();
-                }else {
+                    Toast.makeText(MainActivity.this, "service started", Toast.LENGTH_SHORT).show();
+                } else {
                     stopService(new Intent(getApplication(), CopyDropService.class));
                     mServiceState.setServiveState(false);
                     Log.d("test", "service stoped from stop Service");
-                    Toast.makeText(MainActivity.this, "service stoped",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "service stoped", Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -1,7 +1,6 @@
-package me.shell.texttospeechutil;
+package me.shell.texttospeechutil.copydrop;
 
 import android.content.Context;
-import android.graphics.Point;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -13,21 +12,22 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import me.shell.texttospeechutil.R;
+
 /**
  * Created by shell on 20/1/17.
  */
 
-public class InitialPopupView extends FrameLayout{
+public class InitialPopupView extends FrameLayout {
 
-    public InitialPopupView mInitialPopupView;
-
+    public static int a;
     public final WindowManager.LayoutParams mLayoutParams;
     public final WindowManager mWindowManager;
 
     public final View initialPopupView;
     public final View initialPopupIconContainer;
     public final View initialPopupGlow;
-    public static int a;
+    public InitialPopupView mInitialPopupView;
     public int i;
 
     public int initialX;
@@ -51,16 +51,13 @@ public class InitialPopupView extends FrameLayout{
         this.initialPopupIconContainer = findViewById(R.id.initial_popup_icon_container);
         this.initialPopupGlow = findViewById(R.id.initial_popup_glow);
 
-        a = (int)(0.5F + 15.0F * getResources().getDisplayMetrics().density);
-
-        if (((AccessibilityManager)paramContext.getSystemService(Context.ACCESSIBILITY_SERVICE)).isTouchExplorationEnabled())
-        {
+        if (((AccessibilityManager) paramContext.getSystemService(Context.ACCESSIBILITY_SERVICE)).isTouchExplorationEnabled()) {
             this.initialPopupIconContainer.setClickable(true);
             this.initialPopupIconContainer.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(paramContext,"Clicked",Toast.LENGTH_SHORT).show();
-                    Log.d("test","Clicked");
+                    Toast.makeText(paramContext, "Clicked", Toast.LENGTH_SHORT).show();
+                    Log.d("test", "Clicked");
                 }
             });
             return;
@@ -68,13 +65,12 @@ public class InitialPopupView extends FrameLayout{
 
         mInitialPopupView = this;
 
-        mAnimationPopupIconContainer = AnimationUtils.loadAnimation(paramContext,R.anim.initial_popup_icon_container);
-        mAnimationPopupIconGlow = AnimationUtils.loadAnimation(paramContext,R.anim.intial_popup_icon_glow);
+        mAnimationPopupIconContainer = AnimationUtils.loadAnimation(paramContext, R.anim.initial_popup_icon_container);
+        mAnimationPopupIconGlow = AnimationUtils.loadAnimation(paramContext, R.anim.intial_popup_icon_glow);
 
         mAnimationPopupIconContainer.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
             }
 
             @Override
@@ -87,13 +83,14 @@ public class InitialPopupView extends FrameLayout{
 
             }
         });
+    }
 
+    public void startAnimation() {
         this.initialPopupGlow.startAnimation(mAnimationPopupIconGlow);
         this.initialPopupIconContainer.startAnimation(mAnimationPopupIconContainer);
     }
 
-    public boolean onTouchEvent(MotionEvent paramMotionEvent)
-    {
+    public boolean onTouchEvent(MotionEvent paramMotionEvent) {
         switch (paramMotionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 initialX = mLayoutParams.x;
@@ -108,7 +105,7 @@ public class InitialPopupView extends FrameLayout{
                         + (int) (paramMotionEvent.getRawX() - initialTouchX);*/
                 mLayoutParams.y = initialY
                         + (int) (paramMotionEvent.getRawY() - initialTouchY);
-                mWindowManager.updateViewLayout(this,this.mLayoutParams);
+                mWindowManager.updateViewLayout(this, this.mLayoutParams);
                 return true;
         }
         return false;

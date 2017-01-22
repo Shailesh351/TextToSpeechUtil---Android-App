@@ -1,7 +1,6 @@
-package me.shell.texttospeechutil;
+package me.shell.texttospeechutil.copydrop;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
 /**
@@ -17,14 +16,14 @@ public class ServiceState {
     private SharedPreferences mSharedPreference;
     private SharedPreferences.Editor mEditor;
 
-    ServiceState(Context context){
-        mSharedPreference = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
+    public ServiceState(Context context) {
+        mSharedPreference = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
         mEditor = mSharedPreference.edit();
     }
 
-    public boolean isServiceOn(){
-        String state = mSharedPreference.getString(IS_SERVICE_ON,null);
-        if(state != null){
+    public static boolean isServiceOn(Context context) {
+        String state = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE).getString(IS_SERVICE_ON, null);
+        if (state != null) {
             if (state.equals("true")) {
                 return true;
             }
@@ -32,9 +31,9 @@ public class ServiceState {
         return false;
     }
 
-    public static boolean isServiceOn(Context context){
-        String state = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE).getString(IS_SERVICE_ON,null);
-        if(state != null){
+    public boolean isServiceOn() {
+        String state = mSharedPreference.getString(IS_SERVICE_ON, null);
+        if (state != null) {
             if (state.equals("true")) {
                 return true;
             }
@@ -42,13 +41,13 @@ public class ServiceState {
         return false;
     }
 
-    public void setServiveState(boolean state){
+    public void setServiveState(boolean state) {
         mEditor.clear().commit();
-        if(state == true){
-            mEditor.putString(IS_SERVICE_ON,"true");
+        if (state == true) {
+            mEditor.putString(IS_SERVICE_ON, "true");
             mEditor.commit();
-        }else {
-            mEditor.putString(IS_SERVICE_ON,"false");
+        } else {
+            mEditor.putString(IS_SERVICE_ON, "false");
             mEditor.commit();
         }
     }

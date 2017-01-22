@@ -1,4 +1,4 @@
-package me.shell.texttospeechutil;
+package me.shell.texttospeechutil.copydrop;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
@@ -10,18 +10,18 @@ import android.view.WindowManager;
 
 public class e {
 
-    public Context a;
-    public InitialPopupView b;
-    public WindowManager c;
     public final WindowManager.LayoutParams d = new WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT);
+    public Context a;
+    public InitialPopupView b;
+    public WindowManager c;
 
-    public e(Context context){
+    public e(Context context) {
         this.a = context;
-        this.b = new InitialPopupView(this.a,this.d);
+        this.b = new InitialPopupView(this.a, this.d);
     }
 }

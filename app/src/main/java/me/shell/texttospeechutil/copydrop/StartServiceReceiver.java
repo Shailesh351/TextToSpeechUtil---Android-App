@@ -1,4 +1,4 @@
-package me.shell.texttospeechutil;
+package me.shell.texttospeechutil.copydrop;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -15,7 +15,7 @@ public class StartServiceReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         //Start service if App is Updated
-        if(ServiceState.isServiceOn(context) && intent != null && intent.getAction() != null) {
+        if (ServiceState.isServiceOn(context) && intent != null && intent.getAction() != null) {
             if (!intent.getAction().equals("android.intent.action.MY_PACKAGE_REPLACED")) {
                 return;
             }
@@ -23,7 +23,7 @@ public class StartServiceReceiver extends BroadcastReceiver {
             Log.d("test", "Service started from update");
         }
 
-        while(!intent.getAction().equals("android.intent.action.BOOT_COMPLETED")){
+        while (!intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             return;
         }
 

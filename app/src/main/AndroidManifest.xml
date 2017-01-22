@@ -18,11 +18,12 @@
             </intent-filter>
         </activity>
 
-        <service android:name="me.shell.texttospeechutil.CopyDropService"
-                 android:enabled="true"/>
+        <service
+            android:name="me.shell.texttospeechutil.copydrop.CopyDropService"
+            android:enabled="true"/>
 
         <receiver
-            android:name="me.shell.texttospeechutil.StartServiceReceiver">
+            android:name="me.shell.texttospeechutil.copydrop.StartServiceReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
