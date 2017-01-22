@@ -88,21 +88,8 @@ public class InitialPopupView extends FrameLayout{
             }
         });
 
-        initialPopupGlow.startAnimation(mAnimationPopupIconGlow);
+        this.initialPopupGlow.startAnimation(mAnimationPopupIconGlow);
         this.initialPopupIconContainer.startAnimation(mAnimationPopupIconContainer);
-    }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-        Point localPoint = new Point();
-        getDisplay().getSize(localPoint);
-        this.i = (localPoint.y - this.h - getHeight());
-        if (this.mLayoutParams.y > this.i)
-        {
-            this.mLayoutParams.y = this.i;
-            this.mWindowManager.updateViewLayout(this, this.mLayoutParams);
-        }
     }
 
     public boolean onTouchEvent(MotionEvent paramMotionEvent)

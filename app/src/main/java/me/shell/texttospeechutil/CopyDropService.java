@@ -14,39 +14,20 @@ import android.view.WindowManager;
 
 public class CopyDropService extends Service {
 
-    WindowManager.LayoutParams params;
-    InitialPopupView mInitialPopupView;
-    private WindowManager mWindowManager;
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
-    }
+    public e i;
+    public l l;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-
-        params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT);
-
-        params.gravity = Gravity.TOP | Gravity.LEFT;
-        params.x = mWindowManager.getDefaultDisplay().getWidth();
-        params.y = 200;
-
-        mInitialPopupView = new InitialPopupView(getApplicationContext(), params);
-
-        mWindowManager.addView(mInitialPopupView, params);
+        this.l = new l(this);
+        this.l.showPopupView();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        this.l.removePopupView();
     }
 
     @Nullable

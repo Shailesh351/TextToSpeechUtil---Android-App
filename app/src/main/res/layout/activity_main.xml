@@ -11,21 +11,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.shell.texttospeechutil.MainActivity">
 
-    <Button
-        android:id="@+id/startService"
-        android:layout_width="wrap_content"
+    <Switch
+        android:id="@id/service_on_off_switch"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:text="start service"/>
+        android:layout_weight="0"
+        android:text="Service On/Off"
+        android:textSize="24sp"/>
 
-    <Button
-        android:id="@+id/stopService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/startService"
-        android:layout_below="@+id/startService"
-        android:layout_marginTop="39dp"
-        android:text="stop service"/>
 </RelativeLayout>
